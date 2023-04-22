@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: aquamarine;
+        }
+
+        h1{
+            text-align: center;
+            padding-top: 100px;
+            text-decoration: underline;
+
+            padding: 10px;
+  border: 5px solid gray;
+  margin: 30px;
+  margin-left: 600px;
+  margin-right: 600px;
+  
+            
+        }
+        #MyClockDisplay{
+            text-align: center;
+            text-decoration: solid;
+            font-size: 200px;
+            padding-top: 70px;
+        }
+     /* div{
+        
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 30px;
+  
+     } */
+
+
+        
+    </style>
+
+</head>
+
+<body>
+   <div><h1 >Digital Clock </h1></div>
+    <div id="MyClockDisplay"></div>
+  
+</body>
+<script>
+     const ShowTime = () =>{
+    var date = new Date();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    var session = "AM";
+
+    if(h === 0){
+      h=12;
+    }
+    if(h>12){
+       h=h-12;
+       session= "PM";
+    }
+
+    h = (h < 10) ? "0" + h : h;
+    m = (m < 10) ? "0" + m : m;
+    s = (s < 10) ? "0" + s : s;
+    document.getElementById("MyClockDisplay"). innerHTML = h + ":" + m + ":" + s + " " + session;
+    setTimeout(ShowTime,1000);
+}
+     ShowTime();
+     
+    </script>
+</html>
